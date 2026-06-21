@@ -5,7 +5,7 @@ import { ApiResponse } from "@/types/api.types";
 import { RegisterBody } from "@/types/user.types";
 import { NextRequest, NextResponse } from "next/server";
 
-async function POST(req: NextRequest){
+export async function POST(req: NextRequest){
     try {
         await connectDB();
 
@@ -34,7 +34,7 @@ async function POST(req: NextRequest){
         const newUser = await userModel.create({ name, email, password });
 
         const token = generateToken({
-            userId: newUser._id,
+            userId: newUser._id.toString(),
         });
 
         const res = NextResponse.json<ApiResponse>({
