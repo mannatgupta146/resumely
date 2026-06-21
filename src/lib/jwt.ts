@@ -1,9 +1,14 @@
 import jwt, { JwtPayload } from 'jsonwebtoken';
 
 export const generateToken = (payload: JwtPayload) : string => {
-    return jwt.sign(payload, process.env.JWT_SECRET!, { 
-        expiresIn: '1h' 
-    });
+    try {
+        return jwt.sign(payload, process.env.JWT_SECRET!, { 
+            expiresIn: '1h' 
+        });
+    } catch (error) {
+        console.error("Error generating token:", error);
+        throw new Error("Token generation failed");
+    }
 }
 
 export const verifyToken = (token: string) => {
