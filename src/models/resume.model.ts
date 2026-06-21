@@ -12,13 +12,11 @@ const resumeSchema = new mongoose.Schema<IResume>(
         title: {
             type: String,
             default: "Untitled Resume",
-            required: true
         },
 
         summary: {
             type: String,
             default: "",
-            required: false // Better to let this be empty initially
         },
 
         personalInfo: {

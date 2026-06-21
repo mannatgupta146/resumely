@@ -11,7 +11,7 @@ export const generateToken = (payload: JwtPayload) : string => {
     }
 }
 
-export const verifyToken = (token: string) => {
+export const verifyToken = (token: string) : any => {
     try {
         return jwt.verify(token, process.env.JWT_SECRET!);
     } catch (error) {
