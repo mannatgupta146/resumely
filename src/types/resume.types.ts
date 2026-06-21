@@ -1,0 +1,49 @@
+import mongoose from "mongoose";
+
+export interface IPersonalInfo {
+    fullname: string;
+    email: string;
+    mobile: string;
+    location: string;
+    github: string;
+    linkedIn: string;
+    portfolio: string;
+}
+
+export interface IWorkExperience {
+    company: string;
+    position: string;
+    startDate: string;
+    endDate: string;
+    description: string;
+}
+
+export interface IProjects {
+    title: string;
+    description: string;
+    githubUrl: string;
+    liveUrl: string;
+    techStack: string[];
+}
+
+export interface IEducation {
+    institute: string;
+    degree: string;
+    startDate: string;
+    endDate: string;
+    description: string;
+}
+
+export interface IResume {
+    _id?: string;
+    user_id: mongoose.Types.ObjectId;
+    title: string;
+    summary: string;
+    personalInfo: IPersonalInfo;
+    workExperience: IWorkExperience[];
+    projects: IProjects[];
+    education: IEducation[];
+    skills: string[];
+    certifications?: string[];
+    achievements: string[]
+}
