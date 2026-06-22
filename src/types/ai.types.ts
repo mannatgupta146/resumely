@@ -14,3 +14,10 @@ export interface GenerateProjectDescriptionBody {
     jobTitle: string;
     techStack: string[];
 }
+
+export interface GenerateWorkExperienceBody {
+    experienceLevel: string;
+    yearsOfExperience: number;
+    techStack: string[];
+    jobRole: string;
+}
