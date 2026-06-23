@@ -21,7 +21,7 @@ export async function GET (req: NextRequest, { params }: {params : Promise<{ res
 
         const resume = await resumeModel.findOne({ 
             _id: resumeId,
-            user_id: user.userId
+            user_id: user
         });
         
         if(!resume) {
@@ -39,12 +39,11 @@ export async function GET (req: NextRequest, { params }: {params : Promise<{ res
 
     } catch (error) {
         console.error("Error in get resume api ", error);
-                return NextResponse.json<ApiResponse>({
-                        success: false,
-                        message: "Something went wrong",
-                        error: error as Error
-                    }), 
-                { status: 500 };
+        return NextResponse.json<ApiResponse>({
+            success: false,
+            message: "Something went wrong",
+            error: error as Error
+        }, { status: 500 });
     }
 }
 
@@ -65,7 +64,7 @@ export async function DELETE (req: NextRequest, { params }: {params : Promise<{ 
 
         const resume = await resumeModel.findOneAndDelete({ 
             _id: resumeId,
-            user_id: user.userId
+            user_id: user
         });
         
         if(!resume) {
@@ -87,7 +86,7 @@ export async function DELETE (req: NextRequest, { params }: {params : Promise<{ 
             success: false,
             message: "Something went wrong",
             error: error as Error
-        }), { status: 500 };
+        }, { status: 500 });
     }
 }   
 
@@ -110,7 +109,7 @@ export async function PATCH (req: NextRequest, { params }: {params : Promise<{ r
 
         const updatedResume = await resumeModel.findOneAndUpdate({ 
             _id: resumeId,
-            user_id: user.userId
+            user_id: user
         }, 
         { $set: body }, 
         { new: true, runValidators: true });
@@ -131,10 +130,9 @@ export async function PATCH (req: NextRequest, { params }: {params : Promise<{ r
     } catch (error) {
         console.error("Error in update resume api ", error);    
         return NextResponse.json<ApiResponse>({
-                success: false,                    
-                message: "Something went wrong",
-                error: error as Error
-            }), 
-        { status: 500 };
+            success: false,                    
+            message: "Something went wrong",
+            error: error as Error
+        }, { status: 500 });
     }
 }

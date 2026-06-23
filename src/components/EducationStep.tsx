@@ -74,12 +74,12 @@ export default function EducationStep({
       );
 
       if (
-        data.resume?.education &&
-        data.resume.education.length > 0
+        data.data?.education &&
+        data.data.education.length > 0
       ) {
         reset({
           education:
-            data.resume.education,
+            data.data.education,
         });
       }
     } catch (error) {
@@ -106,42 +106,42 @@ export default function EducationStep({
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 py-10 px-4">
+    <div className="min-h-screen bg-slate-50 dark:bg-black py-10 px-4 text-slate-800 dark:text-zinc-100 transition-colors duration-300">
       <div className="max-w-5xl mx-auto">
 
-        {/* Progress */}
+         {/* Progress */}
 
         <div className="mb-8">
           <div className="flex justify-between mb-2">
-            <span className="font-medium">
+            <span className="font-medium text-slate-700 dark:text-zinc-300">
               Step 2 of 8
             </span>
 
-            <span className="text-slate-500">
+            <span className="text-slate-500 dark:text-zinc-400">
               25%
             </span>
           </div>
 
-          <div className="h-2 bg-slate-200 rounded-full">
-            <div className="h-full w-[25%] bg-violet-600 rounded-full" />
+          <div className="h-2 bg-slate-200 dark:bg-zinc-800 rounded-full">
+            <div className="h-full w-[25%] bg-blue-600 rounded-full" />
           </div>
         </div>
 
         {/* Card */}
 
-        <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-8">
+        <div className="bg-white dark:bg-zinc-900 rounded-3xl border border-slate-200 dark:border-zinc-800 shadow-sm p-8 transition-colors duration-300">
 
           <div className="flex items-center gap-4 mb-8">
-            <div className="h-12 w-12 rounded-xl bg-violet-100 flex items-center justify-center">
-              <GraduationCap className="text-violet-600" />
+            <div className="h-12 w-12 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+              <GraduationCap className="text-blue-600 dark:text-blue-400" />
             </div>
 
             <div>
-              <h1 className="text-3xl font-bold text-slate-800">
+              <h1 className="text-3xl font-bold text-slate-800 dark:text-white">
                 Education
               </h1>
 
-              <p className="text-slate-500">
+              <p className="text-slate-500 dark:text-zinc-400">
                 Add your educational background.
               </p>
             </div>
@@ -157,7 +157,7 @@ export default function EducationStep({
               (field, index) => (
                 <div
                   key={field.id}
-                  className="border border-slate-200 rounded-2xl p-6 relative"
+                  className="border border-slate-200 dark:border-zinc-800 rounded-2xl p-6 relative bg-slate-50/50 dark:bg-zinc-800/30"
                 >
                   {fields.length >
                     1 && (
@@ -168,7 +168,7 @@ export default function EducationStep({
                           index
                         )
                       }
-                      className="absolute top-4 right-4 text-red-500 hover:text-red-600"
+                      className="absolute top-4 right-4 text-red-500 hover:text-red-600 cursor-pointer"
                     >
                       <Trash2
                         size={18}
@@ -181,7 +181,7 @@ export default function EducationStep({
                     {/* Institute */}
 
                     <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">
+                      <label className="block text-sm font-medium text-slate-700 dark:text-zinc-300 mb-2">
                         Institute
                       </label>
 
@@ -190,14 +190,14 @@ export default function EducationStep({
                           `education.${index}.institute`
                         )}
                         placeholder="Lakshmi Narain College of Technology"
-                        className="w-full border border-slate-300 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-violet-500"
+                        className="w-full border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                       />
                     </div>
 
                     {/* Degree */}
 
                     <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">
+                      <label className="block text-sm font-medium text-slate-700 dark:text-zinc-300 mb-2">
                         Degree
                       </label>
 
@@ -206,14 +206,14 @@ export default function EducationStep({
                           `education.${index}.degree`
                         )}
                         placeholder="B.Tech Computer Science"
-                        className="w-full border border-slate-300 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-violet-500"
+                        className="w-full border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                       />
                     </div>
 
                     {/* Start Date */}
 
                     <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">
+                      <label className="block text-sm font-medium text-slate-700 dark:text-zinc-300 mb-2">
                         Start Date
                       </label>
 
@@ -222,14 +222,14 @@ export default function EducationStep({
                         {...register(
                           `education.${index}.startDate`
                         )}
-                        className="w-full border border-slate-300 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-violet-500"
+                        className="w-full border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                       />
                     </div>
 
                     {/* End Date */}
 
                     <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">
+                      <label className="block text-sm font-medium text-slate-700 dark:text-zinc-300 mb-2">
                         End Date
                       </label>
 
@@ -238,7 +238,7 @@ export default function EducationStep({
                         {...register(
                           `education.${index}.endDate`
                         )}
-                        className="w-full border border-slate-300 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-violet-500"
+                        className="w-full border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                       />
                     </div>
 
@@ -259,7 +259,7 @@ export default function EducationStep({
                   endDate: "",
                 })
               }
-              className="flex items-center gap-2 border border-violet-300 text-violet-600 px-5 py-3 rounded-xl hover:bg-violet-50 transition"
+              className="flex items-center gap-2 border border-blue-300 dark:border-blue-700/50 text-blue-600 dark:text-blue-400 px-5 py-3 rounded-xl hover:bg-blue-50 dark:hover:bg-blue-900/20 cursor-pointer transition-colors"
             >
               <Plus size={18} />
               Add Education
@@ -272,7 +272,7 @@ export default function EducationStep({
               <button
                 type="button"
                 onClick={onBack}
-                className="flex items-center gap-2 px-5 py-3 border border-slate-300 rounded-xl hover:bg-slate-100"
+                className="flex items-center gap-2 px-5 py-3 border border-slate-300 dark:border-zinc-700 text-slate-700 dark:text-zinc-300 rounded-xl hover:bg-slate-100 dark:hover:bg-zinc-800 cursor-pointer transition-colors"
               >
                 <ArrowLeft
                   size={18}
@@ -285,7 +285,7 @@ export default function EducationStep({
                 disabled={
                   isSubmitting
                 }
-                className="flex items-center gap-2 px-6 py-3 bg-violet-600 hover:bg-violet-700 text-white rounded-xl"
+                className="flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl cursor-pointer transition-colors duration-200"
               >
                 {isSubmitting
                   ? "Saving..."

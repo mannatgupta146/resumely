@@ -28,7 +28,7 @@ export default function SkillsStep({ resumeId, onNext, onBack }: Props) {
     try {
       const { data } = await axios.get(`/api/resume/${resumeId}/`);
 
-      setSkills(data.resume.skills || []);
+      setSkills(data.data.skills || []);
     } catch (error) {
       console.log(error);
     }
@@ -55,7 +55,7 @@ export default function SkillsStep({ resumeId, onNext, onBack }: Props) {
 
       console.log("data in resume find", resumeData);
 
-      const resume = resumeData.resume;
+      const resume = resumeData.data;
 
       const { data } = await axios.post("/api/ai/generate/skills", {
         jobTitle: "web developer",
@@ -89,30 +89,30 @@ export default function SkillsStep({ resumeId, onNext, onBack }: Props) {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 py-10 px-4">
+    <div className="min-h-screen bg-slate-50 dark:bg-black py-10 px-4 text-slate-800 dark:text-zinc-100 transition-colors duration-300">
       <div className="max-w-5xl mx-auto">
         {/* Progress */}
 
         <div className="mb-8">
           <div className="flex justify-between mb-2">
-            <span>Step 3 of 8</span>
+            <span className="font-medium text-slate-700 dark:text-zinc-300">Step 3 of 8</span>
 
-            <span>37%</span>
+            <span className="text-slate-500 dark:text-zinc-400">37%</span>
           </div>
 
-          <div className="h-2 bg-slate-200 rounded-full">
-            <div className="h-full w-[37%] bg-violet-600 rounded-full" />
+          <div className="h-2 bg-slate-200 dark:bg-zinc-800 rounded-full">
+            <div className="h-full w-[37%] bg-blue-600 rounded-full" />
           </div>
         </div>
 
         {/* Card */}
 
-        <div className="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm">
+        <div className="bg-white dark:bg-zinc-900 rounded-3xl border border-slate-200 dark:border-zinc-800 p-8 shadow-sm transition-colors duration-300">
           <div className="flex justify-between items-center mb-8">
             <div>
-              <h1 className="text-3xl font-bold">Skills</h1>
+              <h1 className="text-3xl font-bold text-slate-800 dark:text-white">Skills</h1>
 
-              <p className="text-slate-500 mt-2">
+              <p className="text-slate-500 dark:text-zinc-400 mt-2">
                 Add skills relevant to your role.
               </p>
             </div>
@@ -120,7 +120,7 @@ export default function SkillsStep({ resumeId, onNext, onBack }: Props) {
             <button
               onClick={generateSkills}
               disabled={aiLoading}
-              className="flex items-center gap-2 px-5 py-3 bg-violet-600 text-white rounded-xl hover:bg-violet-700"
+              className="flex items-center gap-2 px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl cursor-pointer transition-colors duration-200"
             >
               <Sparkles size={18} />
 
@@ -135,13 +135,13 @@ export default function SkillsStep({ resumeId, onNext, onBack }: Props) {
               value={skillInput}
               onChange={(e) => setSkillInput(e.target.value)}
               placeholder="Enter skill"
-              className="flex-1 border rounded-xl px-4 py-3"
+              className="flex-1 border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
             />
 
             <button
               onClick={addSkill}
               type="button"
-              className="px-5 py-3 bg-slate-900 text-white rounded-xl"
+              className="px-5 py-3 bg-slate-900 dark:bg-zinc-800 hover:bg-slate-800 dark:hover:bg-zinc-700 text-white rounded-xl cursor-pointer transition-colors duration-200"
             >
               Add
             </button>
@@ -153,11 +153,11 @@ export default function SkillsStep({ resumeId, onNext, onBack }: Props) {
             {skills?.map((skill) => (
               <div
                 key={skill}
-                className="flex items-center gap-2 bg-violet-100 text-violet-700 px-4 py-2 rounded-full"
+                className="flex items-center gap-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-4 py-2 rounded-full font-medium transition-colors"
               >
                 {skill}
 
-                <button onClick={() => removeSkill(skill)}>
+                <button onClick={() => removeSkill(skill)} className="cursor-pointer hover:opacity-80">
                   <X size={16} />
                 </button>
               </div>
@@ -169,7 +169,7 @@ export default function SkillsStep({ resumeId, onNext, onBack }: Props) {
           <div className="flex justify-between mt-12">
             <button
               onClick={onBack}
-              className="flex items-center gap-2 px-5 py-3 border rounded-xl"
+              className="flex items-center gap-2 px-5 py-3 border border-slate-300 dark:border-zinc-700 text-slate-700 dark:text-zinc-300 rounded-xl hover:bg-slate-100 dark:hover:bg-zinc-800 cursor-pointer transition-colors"
             >
               <ArrowLeft size={18} />
               Back
@@ -178,7 +178,7 @@ export default function SkillsStep({ resumeId, onNext, onBack }: Props) {
             <button
               onClick={saveSkills}
               disabled={loading}
-              className="flex items-center gap-2 px-6 py-3 bg-violet-600 hover:bg-violet-700 text-white rounded-xl"
+              className="flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl cursor-pointer transition-colors duration-200"
             >
               {loading ? "Saving..." : "Continue"}
 

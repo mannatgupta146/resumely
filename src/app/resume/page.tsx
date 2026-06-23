@@ -79,22 +79,22 @@ export default function ResumePage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50 dark:bg-black text-slate-800 dark:text-zinc-100 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6 py-10">
         {/* Header */}
 
         <div className="flex items-center justify-between mb-10">
           <div>
-            <h1 className="text-4xl font-bold">My Resumes</h1>
+            <h1 className="text-4xl font-bold text-slate-900 dark:text-white">My Resumes</h1>
 
-            <p className="text-slate-500 mt-2">
+            <p className="text-slate-500 dark:text-zinc-400 mt-2">
               Create ATS-friendly resumes using AI.
             </p>
           </div>
 
           <button
             onClick={() => setShowModal(true)}
-            className="bg-violet-600 hover:bg-violet-700 text-white px-6 py-3 rounded-xl flex items-center gap-2"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl flex items-center gap-2 cursor-pointer transition-colors duration-200"
           >
             <Plus size={18} />
             Create Resume
@@ -104,18 +104,18 @@ export default function ResumePage() {
         {/* Empty State */}
 
         {!loading && resumes.length === 0 && (
-          <div className="bg-white rounded-3xl border p-16 text-center">
-            <FileText size={70} className="mx-auto text-slate-300" />
+          <div className="bg-white dark:bg-zinc-900 rounded-3xl border border-slate-200 dark:border-zinc-800 p-16 text-center shadow-sm">
+            <FileText size={70} className="mx-auto text-slate-300 dark:text-zinc-600" />
 
-            <h2 className="text-2xl font-semibold mt-6">No Resume Yet</h2>
+            <h2 className="text-2xl font-semibold mt-6 text-slate-800 dark:text-white">No Resume Yet</h2>
 
-            <p className="text-slate-500 mt-2">
+            <p className="text-slate-500 dark:text-zinc-400 mt-2">
               Create your first AI powered resume.
             </p>
 
             <button
               onClick={() => setShowModal(true)}
-              className="mt-6 bg-violet-600 text-white px-6 py-3 rounded-xl"
+              className="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl cursor-pointer transition-colors duration-200"
             >
               Create Resume
             </button>
@@ -128,25 +128,25 @@ export default function ResumePage() {
           {resumes.map((resume) => (
             <div
               key={resume._id}
-              className="bg-white rounded-3xl p-6 border border-slate-200 hover:shadow-lg transition"
+              className="bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-slate-200 dark:border-zinc-800 hover:shadow-lg transition-all duration-300"
             >
               <div className="flex justify-between">
                 <div>
-                  <h2 className="font-bold text-xl">{resume.title}</h2>
+                  <h2 className="font-bold text-xl text-slate-800 dark:text-white">{resume.title}</h2>
 
-                  <div className="flex items-center gap-2 text-slate-500 mt-2">
+                  <div className="flex items-center gap-2 text-slate-500 dark:text-zinc-400 mt-2">
                     <Briefcase size={16} />
                     {resume.jobTitle}
                   </div>
 
-                  <span className="inline-block mt-4 bg-violet-100 text-violet-700 px-3 py-1 rounded-full text-sm">
+                  <span className="inline-block mt-4 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-3 py-1 rounded-full text-sm">
                     {resume.experienceLevel}
                   </span>
                 </div>
 
                 <button
                   onClick={() => handleDelete(resume._id)}
-                  className="text-red-500"
+                  className="text-red-500 hover:text-red-600 cursor-pointer p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors"
                 >
                   <Trash2 size={18} />
                 </button>
@@ -154,7 +154,7 @@ export default function ResumePage() {
 
               <button
                 onClick={() => router.push(`/resume/${resume._id}`)}
-                className="mt-6 w-full bg-slate-900 text-white py-3 rounded-xl"
+                className="mt-6 w-full bg-slate-900 dark:bg-zinc-800 hover:bg-slate-800 dark:hover:bg-zinc-700 text-white py-3 rounded-xl cursor-pointer transition-colors duration-200"
               >
                 Continue Building
               </button>
@@ -166,9 +166,9 @@ export default function ResumePage() {
       {/* Modal */}
 
       {showModal && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center px-4 z-50">
-          <div className="bg-white w-full max-w-lg rounded-3xl p-8">
-            <h2 className="text-2xl font-bold mb-6">Create Resume</h2>
+        <div className="fixed inset-0 bg-black/40 dark:bg-black/60 flex items-center justify-center px-4 z-50">
+          <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 w-full max-w-lg rounded-3xl p-8 shadow-2xl">
+            <h2 className="text-2xl font-bold mb-6 text-slate-800 dark:text-white">Create Resume</h2>
 
             <div className="space-y-4">
               <input
@@ -180,7 +180,7 @@ export default function ResumePage() {
                     title: e.target.value,
                   })
                 }
-                className="w-full border rounded-xl p-3"
+                className="w-full border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
               />
 
               <input
@@ -192,7 +192,7 @@ export default function ResumePage() {
                     jobTitle: e.target.value,
                   })
                 }
-                className="w-full border rounded-xl p-3"
+                className="w-full border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
               />
 
               <select
@@ -203,7 +203,7 @@ export default function ResumePage() {
                     experienceLevel: e.target.value,
                   })
                 }
-                className="w-full border rounded-xl p-3"
+                className="w-full border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
               >
                 <option>Fresher</option>
 
@@ -218,14 +218,14 @@ export default function ResumePage() {
             <div className="flex justify-end gap-3 mt-8">
               <button
                 onClick={() => setShowModal(false)}
-                className="px-5 py-3 border rounded-xl"
+                className="px-5 py-3 border border-slate-300 dark:border-zinc-700 text-slate-700 dark:text-zinc-300 rounded-xl hover:bg-slate-50 dark:hover:bg-zinc-800 transition-colors duration-200 cursor-pointer"
               >
                 Cancel
               </button>
 
               <button
                 onClick={handleCreateResume}
-                className="px-5 py-3 bg-violet-600 text-white rounded-xl"
+                className="px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl cursor-pointer transition-colors duration-200"
               >
                 Create Resume
               </button>

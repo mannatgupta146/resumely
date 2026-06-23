@@ -32,10 +32,9 @@ export async function POST(req: NextRequest) {
     } catch (error) {
         console.error("Error in resume create:", error);
         return NextResponse.json<ApiResponse>({
-                success: false,
-                message: "Something went wrong",
-                error: error as Error
-            }), 
-        { status: 500 };
+            success: false,
+            message: "Something went wrong",
+            error: error as Error
+        }, { status: 500 });
     }
 }

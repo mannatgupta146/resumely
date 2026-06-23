@@ -36,7 +36,7 @@ export default function PersonalInfoStep({ resumeId, onNext }: Props) {
     try {
       const { data } = await axios.get(`/api/resume/${resumeId}`);
 
-      reset(data.resume.personalInfo || {});
+      reset(data.data.personalInfo || {});
     } catch (error) {
       console.log(error);
     }
@@ -55,29 +55,29 @@ export default function PersonalInfoStep({ resumeId, onNext }: Props) {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 py-10 px-4">
+    <div className="min-h-screen bg-slate-50 dark:bg-black py-10 px-4 text-slate-800 dark:text-zinc-100 transition-colors duration-300">
       <div className="max-w-4xl mx-auto">
         {/* Progress */}
         <div className="mb-8">
           <div className="flex justify-between mb-2">
-            <span className="font-medium">Step 1 of 8</span>
+            <span className="font-medium text-slate-700 dark:text-zinc-300">Step 1 of 8</span>
 
-            <span className="text-slate-500">12%</span>
+            <span className="text-slate-500 dark:text-zinc-400">12%</span>
           </div>
 
-          <div className="h-2 bg-slate-200 rounded-full">
-            <div className="h-full w-[12%] bg-violet-600 rounded-full" />
+          <div className="h-2 bg-slate-200 dark:bg-zinc-800 rounded-full">
+            <div className="h-full w-[12%] bg-blue-600 rounded-full" />
           </div>
         </div>
 
         {/* Card */}
-        <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-8">
+        <div className="bg-white dark:bg-zinc-900 rounded-3xl border border-slate-200 dark:border-zinc-800 shadow-sm p-8 transition-colors duration-300">
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-slate-800">
+            <h1 className="text-3xl font-bold text-slate-800 dark:text-white">
               Personal Information
             </h1>
 
-            <p className="text-slate-500 mt-2">
+            <p className="text-slate-500 dark:text-zinc-400 mt-2">
               Tell recruiters how they can reach you.
             </p>
           </div>
@@ -142,7 +142,7 @@ export default function PersonalInfoStep({ resumeId, onNext }: Props) {
             <div className="flex justify-end pt-4">
               <button
                 disabled={isSubmitting}
-                className="inline-flex items-center gap-2 bg-violet-600 hover:bg-violet-700 text-white px-6 py-3 rounded-xl font-semibold transition"
+                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold cursor-pointer transition-colors duration-200"
               >
                 {isSubmitting ? "Saving..." : "Continue"}
 
@@ -159,19 +159,19 @@ export default function PersonalInfoStep({ resumeId, onNext }: Props) {
 function InputField({ label, placeholder, icon, register }: any) {
   return (
     <div>
-      <label className="block text-sm font-medium text-slate-700 mb-2">
+      <label className="block text-sm font-medium text-slate-700 dark:text-zinc-300 mb-2">
         {label}
       </label>
 
       <div className="relative">
-        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 dark:text-zinc-500">
           {icon}
         </div>
 
         <input
           {...register}
           placeholder={placeholder}
-          className="w-full border border-slate-300 rounded-xl py-3 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-violet-500"
+          className="w-full border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 rounded-xl py-3 pl-12 pr-4 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
         />
       </div>
     </div>

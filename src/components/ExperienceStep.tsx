@@ -67,9 +67,9 @@ export default function ExperienceStep({ resumeId, onNext, onBack }: Props) {
     try {
       const { data } = await axios.get(`/api/resume/${resumeId}`);
 
-      if (data.resume.experience?.length) {
+      if (data.data.experience?.length) {
         reset({
-          experience: data.resume.experience,
+          experience: data.data.experience,
         });
       }
     } catch (error) {
@@ -83,7 +83,7 @@ export default function ExperienceStep({ resumeId, onNext, onBack }: Props) {
 
       const { data: resumeData } = await axios.get(`/api/resume/${resumeId}`);
 
-      const resume = resumeData.resume;
+      const resume = resumeData.data;
 
       const { data } = await axios.post("/api/ai/generate/work-experience", {
         jobRole: exp.role,
@@ -109,28 +109,28 @@ export default function ExperienceStep({ resumeId, onNext, onBack }: Props) {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 py-10 px-4">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 py-10 px-4 text-slate-800 dark:text-slate-100 transition-colors duration-300">
       <div className="max-w-6xl mx-auto">
         {/* Progress */}
 
         <div className="mb-8">
-          <div className="flex justify-between">
-            <span>Step 5 of 8</span>
+          <div className="flex justify-between mb-2">
+            <span className="font-medium text-slate-700 dark:text-slate-300">Step 5 of 8</span>
 
-            <span>62%</span>
+            <span className="text-slate-500 dark:text-slate-400">62%</span>
           </div>
 
-          <div className="h-2 bg-slate-200 rounded-full mt-2">
-            <div className="h-full w-[62%] bg-violet-600 rounded-full" />
+          <div className="h-2 bg-slate-200 dark:bg-slate-800 rounded-full">
+            <div className="h-full w-[62%] bg-blue-600 rounded-full" />
           </div>
         </div>
 
-        <div className="bg-white p-8 rounded-3xl border shadow-sm">
+        <div className="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm transition-colors duration-300">
           <div className="flex justify-between items-center mb-8">
             <div>
-              <h1 className="text-3xl font-bold">Work Experience</h1>
+              <h1 className="text-3xl font-bold text-slate-800 dark:text-white">Work Experience</h1>
 
-              <p className="text-slate-500 mt-2">
+              <p className="text-slate-500 dark:text-slate-400 mt-2">
                 Showcase your professional experience.
               </p>
             </div>
@@ -148,7 +148,7 @@ export default function ExperienceStep({ resumeId, onNext, onBack }: Props) {
                   description: "",
                 })
               }
-              className="bg-violet-600 text-white px-4 py-3 rounded-xl flex items-center gap-2"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-xl flex items-center gap-2 cursor-pointer transition-colors duration-200"
             >
               <Plus size={18} />
               Add Experience
@@ -157,12 +157,12 @@ export default function ExperienceStep({ resumeId, onNext, onBack }: Props) {
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
             {fields.map((field, index) => (
-              <div key={field.id} className="border rounded-2xl p-6 relative">
+              <div key={field.id} className="border border-slate-200 dark:border-slate-800 rounded-2xl p-6 relative bg-slate-50/50 dark:bg-slate-800/30">
                 {fields.length > 1 && (
                   <button
                     type="button"
                     onClick={() => remove(index)}
-                    className="absolute top-4 right-4 text-red-500"
+                    className="absolute top-4 right-4 text-red-500 hover:text-red-600 cursor-pointer"
                   >
                     <Trash2 />
                   </button>
@@ -172,18 +172,18 @@ export default function ExperienceStep({ resumeId, onNext, onBack }: Props) {
                   <input
                     {...register(`experience.${index}.company`)}
                     placeholder="Company Name"
-                    className="border rounded-xl p-3"
+                    className="w-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   />
 
                   <input
                     {...register(`experience.${index}.role`)}
                     placeholder="Job Title"
-                    className="border rounded-xl p-3"
+                    className="w-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   />
 
                   <select
                     {...register(`experience.${index}.employmentType`)}
-                    className="border rounded-xl p-3"
+                    className="w-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   >
                     <option value="">Employment Type</option>
                     <option>Full Time</option>
@@ -195,22 +195,23 @@ export default function ExperienceStep({ resumeId, onNext, onBack }: Props) {
                   <input
                     type="date"
                     {...register(`experience.${index}.startDate`)}
-                    className="border rounded-xl p-3"
+                    className="w-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   />
 
                   <input
                     type="date"
                     {...register(`experience.${index}.endDate`)}
                     disabled={watch(`experience.${index}.currentlyWorking`)}
-                    className="border rounded-xl p-3"
+                    className="w-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:opacity-50"
                   />
                 </div>
 
                 <div className="mt-4">
-                  <label className="flex items-center gap-3">
+                  <label className="flex items-center gap-3 text-slate-700 dark:text-slate-300 cursor-pointer">
                     <input
                       type="checkbox"
                       {...register(`experience.${index}.currentlyWorking`)}
+                      className="rounded border-slate-300 dark:border-slate-700 text-blue-600 focus:ring-blue-500"
                     />
                     Currently Working Here
                   </label>
@@ -221,7 +222,7 @@ export default function ExperienceStep({ resumeId, onNext, onBack }: Props) {
                     <button
                       type="button"
                       onClick={() => generateDescription(index)}
-                      className="bg-violet-100 text-violet-700 px-4 py-2 rounded-xl flex items-center gap-2"
+                      className="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-4 py-2 rounded-xl flex items-center gap-2 font-medium cursor-pointer hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors"
                     >
                       <Sparkles size={18} />
                       Generate Description
@@ -232,7 +233,7 @@ export default function ExperienceStep({ resumeId, onNext, onBack }: Props) {
                     rows={6}
                     {...register(`experience.${index}.description`)}
                     placeholder="Describe your responsibilities and achievements..."
-                    className="w-full border rounded-xl p-4"
+                    className="w-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   />
                 </div>
               </div>
@@ -242,7 +243,7 @@ export default function ExperienceStep({ resumeId, onNext, onBack }: Props) {
               <button
                 type="button"
                 onClick={onBack}
-                className="border px-5 py-3 rounded-xl flex items-center gap-2"
+                className="border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 px-5 py-3 rounded-xl flex items-center gap-2 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer transition-colors"
               >
                 <ArrowLeft size={18} />
                 Back
@@ -250,7 +251,7 @@ export default function ExperienceStep({ resumeId, onNext, onBack }: Props) {
 
               <button
                 disabled={isSubmitting}
-                className="bg-violet-600 text-white px-6 py-3 rounded-xl flex items-center gap-2"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl flex items-center gap-2 cursor-pointer transition-colors duration-200"
               >
                 {isSubmitting ? "Saving..." : "Continue"}
 

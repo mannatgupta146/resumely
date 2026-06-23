@@ -39,15 +39,15 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex">
+    <div className="min-h-screen bg-slate-50 dark:bg-black flex transition-colors duration-300">
       {/* Left */}
-      <div className="hidden lg:flex flex-1 bg-linear-to-br from-violet-600 via-indigo-600 to-blue-600 p-12 text-white flex-col justify-between">
+      <div className="hidden lg:flex flex-1 bg-linear-to-br from-blue-600 via-blue-700 to-indigo-800 p-12 text-white flex-col justify-between">
         <div>
           <h1 className="text-4xl font-bold">
             AI Resume Builder
           </h1>
 
-          <p className="mt-4 text-violet-100">
+          <p className="mt-4 text-blue-100">
             Build professional resumes powered by AI.
           </p>
         </div>
@@ -57,7 +57,7 @@ export default function LoginPage() {
             Welcome Back
           </h2>
 
-          <p className="mt-4 text-violet-100">
+          <p className="mt-4 text-blue-100">
             Continue building your ATS-friendly
             resume.
           </p>
@@ -66,12 +66,12 @@ export default function LoginPage() {
 
       {/* Form */}
       <div className="flex-1 flex items-center justify-center p-6">
-        <div className="w-full max-w-md bg-white rounded-3xl border border-slate-200 shadow-xl p-8">
-          <h2 className="text-3xl font-bold text-slate-800">
+        <div className="w-full max-w-md bg-white dark:bg-zinc-900 rounded-3xl border border-slate-200 dark:border-zinc-800 shadow-xl p-8 transition-colors duration-300">
+          <h2 className="text-3xl font-bold text-slate-800 dark:text-white">
             Login 👋
           </h2>
 
-          <p className="text-slate-500 mt-2">
+          <p className="text-slate-500 dark:text-zinc-400 mt-2">
             Access your resume dashboard.
           </p>
 
@@ -80,14 +80,14 @@ export default function LoginPage() {
             className="mt-8 space-y-5"
           >
             <div>
-              <label className="block mb-2 text-sm font-medium">
+              <label className="block mb-2 text-sm font-medium text-slate-700 dark:text-zinc-300">
                 Email
               </label>
 
               <div className="relative">
                 <Mail
                   size={18}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 dark:text-zinc-500"
                 />
 
                 <input
@@ -95,7 +95,7 @@ export default function LoginPage() {
                     required: "Email is required",
                   })}
                   placeholder="john@example.com"
-                  className="w-full pl-11 pr-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-violet-500 outline-none"
+                  className="w-full pl-11 pr-4 py-3 bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 border border-slate-300 dark:border-zinc-700 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
                 />
               </div>
 
@@ -107,14 +107,14 @@ export default function LoginPage() {
             </div>
 
             <div>
-              <label className="block mb-2 text-sm font-medium">
+              <label className="block mb-2 text-sm font-medium text-slate-700 dark:text-zinc-300">
                 Password
               </label>
 
               <div className="relative">
                 <Lock
                   size={18}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 dark:text-zinc-500"
                 />
 
                 <input
@@ -123,7 +123,7 @@ export default function LoginPage() {
                     required: "Password is required",
                   })}
                   placeholder="********"
-                  className="w-full pl-11 pr-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-violet-500 outline-none"
+                  className="w-full pl-11 pr-4 py-3 bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 border border-slate-300 dark:border-zinc-700 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
                 />
               </div>
 
@@ -136,7 +136,7 @@ export default function LoginPage() {
 
             <button
               disabled={isSubmitting}
-              className="w-full bg-violet-600 hover:bg-violet-700 text-white py-3 rounded-xl font-semibold flex items-center justify-center gap-2"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold flex items-center justify-center gap-2 cursor-pointer transition-colors duration-200"
             >
               {isSubmitting
                 ? "Logging In..."
@@ -146,11 +146,11 @@ export default function LoginPage() {
             </button>
           </form>
 
-          <p className="mt-6 text-center text-slate-500">
+          <p className="mt-6 text-center text-slate-500 dark:text-zinc-400">
             Don't have an account?
             <Link
               href="/auth/register"
-              className="ml-2 text-violet-600 font-semibold"
+              className="ml-2 text-blue-600 dark:text-blue-400 font-semibold hover:underline"
             >
               Register
             </Link>

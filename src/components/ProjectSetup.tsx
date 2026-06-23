@@ -60,9 +60,9 @@ export default function ProjectsStep({ resumeId, onNext, onBack }: Props) {
     try {
       const { data } = await axios.get(`/api/resume/${resumeId}`);
 
-      if (data.resume.projects?.length) {
+      if (data.data.projects?.length) {
         reset({
-          projects: data.resume.projects.map((project: any) => ({
+          projects: data.data.projects.map((project: any) => ({
             ...project,
             techStack: Array.isArray(project.techStack)
               ? project.techStack.join(", ")
@@ -81,14 +81,14 @@ export default function ProjectsStep({ resumeId, onNext, onBack }: Props) {
 
       const { data: resumeData } = await axios.get(`/api/resume/${resumeId}`);
 
-      const resume = resumeData.resume;
+      const resume = resumeData.data;
 
       const { data } = await axios.post(
-        "/api/ai/generate-project-description",
+        "/api/ai/generate/project-description",
         {
-          jobTitle: "web developer",
-          experienceLevel: "mid-level",
-          techStack: ["html", "css", "react", "nodejs"],
+          jobTitle: resume.jobTitle || "Web Developer",
+          experienceLevel: resume.experienceLevel || "Mid-Level",
+          techStack: project.techStack ? project.techStack.split(",").map((tech: string) => tech.trim()) : [],
         }
       );
       console.log("data we get from project description", data);
@@ -117,30 +117,30 @@ export default function ProjectsStep({ resumeId, onNext, onBack }: Props) {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 py-10 px-4">
+    <div className="min-h-screen bg-slate-50 dark:bg-black py-10 px-4 text-slate-800 dark:text-zinc-100 transition-colors duration-300">
       <div className="max-w-6xl mx-auto">
         {/* Progress */}
 
         <div className="mb-8">
           <div className="flex justify-between mb-2">
-            <span>Step 4 of 8</span>
+            <span className="font-medium text-slate-700 dark:text-zinc-300">Step 4 of 8</span>
 
-            <span>50%</span>
+            <span className="text-slate-500 dark:text-zinc-400">50%</span>
           </div>
 
-          <div className="h-2 bg-slate-200 rounded-full">
-            <div className="h-full w-[50%] bg-violet-600 rounded-full" />
+          <div className="h-2 bg-slate-200 dark:bg-zinc-800 rounded-full">
+            <div className="h-full w-[50%] bg-blue-600 rounded-full" />
           </div>
         </div>
 
         {/* Card */}
 
-        <div className="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm">
+        <div className="bg-white dark:bg-zinc-900 rounded-3xl border border-slate-200 dark:border-zinc-800 p-8 shadow-sm transition-colors duration-300">
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h1 className="text-3xl font-bold">Projects</h1>
+              <h1 className="text-3xl font-bold text-slate-800 dark:text-white">Projects</h1>
 
-              <p className="text-slate-500 mt-2">Showcase your best work.</p>
+              <p className="text-slate-500 dark:text-zinc-400 mt-2">Showcase your best work.</p>
             </div>
 
             <button
@@ -154,7 +154,7 @@ export default function ProjectsStep({ resumeId, onNext, onBack }: Props) {
                   liveUrl: "",
                 })
               }
-              className="flex items-center gap-2 bg-violet-600 text-white px-4 py-3 rounded-xl"
+              className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-xl cursor-pointer transition-colors duration-200"
             >
               <Plus size={18} />
               Add Project
@@ -163,12 +163,12 @@ export default function ProjectsStep({ resumeId, onNext, onBack }: Props) {
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
             {fields.map((field, index) => (
-              <div key={field.id} className="border rounded-2xl p-6 relative">
+              <div key={field.id} className="border border-slate-200 dark:border-zinc-800 rounded-2xl p-6 relative bg-slate-50/50 dark:bg-zinc-800/30">
                 {fields.length > 1 && (
                   <button
                     type="button"
                     onClick={() => remove(index)}
-                    className="absolute top-4 right-4 text-red-500"
+                    className="absolute top-4 right-4 text-red-500 hover:text-red-600 cursor-pointer"
                   >
                     <Trash2 />
                   </button>
@@ -178,25 +178,25 @@ export default function ProjectsStep({ resumeId, onNext, onBack }: Props) {
                   <input
                     {...register(`projects.${index}.title`)}
                     placeholder="Project Title"
-                    className="border rounded-xl p-3"
+                    className="w-full border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   />
 
                   <input
                     {...register(`projects.${index}.techStack`)}
                     placeholder="React, Next.js, MongoDB"
-                    className="border rounded-xl p-3"
+                    className="w-full border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   />
 
                   <input
                     {...register(`projects.${index}.githubUrl`)}
                     placeholder="GitHub URL"
-                    className="border rounded-xl p-3"
+                    className="w-full border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   />
 
                   <input
                     {...register(`projects.${index}.liveUrl`)}
                     placeholder="Live URL"
-                    className="border rounded-xl p-3"
+                    className="w-full border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   />
                 </div>
 
@@ -205,7 +205,7 @@ export default function ProjectsStep({ resumeId, onNext, onBack }: Props) {
                     <button
                       type="button"
                       onClick={() => generateDescription(index)}
-                      className="flex items-center gap-2 bg-violet-100 text-violet-700 px-4 py-2 rounded-xl"
+                      className="flex items-center gap-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-4 py-2 rounded-xl font-medium cursor-pointer hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors"
                     >
                       <Sparkles size={18} />
                       Generate Description
@@ -216,7 +216,7 @@ export default function ProjectsStep({ resumeId, onNext, onBack }: Props) {
                     rows={5}
                     {...register(`projects.${index}.description`)}
                     placeholder="Project Description"
-                    className="w-full border rounded-xl p-4"
+                    className="w-full border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   />
                 </div>
               </div>
@@ -228,7 +228,7 @@ export default function ProjectsStep({ resumeId, onNext, onBack }: Props) {
               <button
                 type="button"
                 onClick={onBack}
-                className="flex items-center gap-2 px-5 py-3 border rounded-xl"
+                className="flex items-center gap-2 px-5 py-3 border border-slate-300 dark:border-zinc-700 text-slate-700 dark:text-zinc-300 rounded-xl hover:bg-slate-100 dark:hover:bg-zinc-800 cursor-pointer transition-colors"
               >
                 <ArrowLeft size={18} />
                 Back
@@ -236,7 +236,7 @@ export default function ProjectsStep({ resumeId, onNext, onBack }: Props) {
 
               <button
                 disabled={isSubmitting}
-                className="flex items-center gap-2 px-6 py-3 bg-violet-600 text-white rounded-xl"
+                className="flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl cursor-pointer transition-colors duration-200"
               >
                 {isSubmitting ? "Saving..." : "Continue"}
 

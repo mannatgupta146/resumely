@@ -17,8 +17,7 @@ export async function POST(req: NextRequest){
             return NextResponse.json<ApiResponse>({ 
                 success: false,
                 message: "All fields are required"
-            }), 
-            { status: 400 };
+            }, { status: 400 });
         }
 
         const existingUser = await userModel.findOne({ email });
@@ -27,8 +26,7 @@ export async function POST(req: NextRequest){
             return NextResponse.json<ApiResponse>({
                 success: false,
                 message: "User already exists"
-            }), 
-            { status: 409 };
+            }, { status: 409 });
         }
 
         const newUser = await userModel.create({ name, email, password });
@@ -64,7 +62,6 @@ export async function POST(req: NextRequest){
             success: false,
             message: "Internal Server Error",
             error: error as Error
-        }), 
-        { status: 500 };
+        }, { status: 500 });
     }
 }
