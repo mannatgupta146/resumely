@@ -34,7 +34,7 @@ export default function RegisterPage() {
     } catch (error: any) {
       alert(
         error?.response?.data?.message ||
-          "Registration failed"
+        "Registration failed"
       );
     }
   };
@@ -50,11 +50,9 @@ export default function RegisterPage() {
 
         {/* Top Header / Branding */}
         <div className="relative z-10">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-linear-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
-              <Sparkles size={22} className="text-white" />
-            </div>
-            <span className="text-2xl font-extrabold tracking-tight bg-linear-to-r from-white via-zinc-100 to-zinc-400 bg-clip-text text-transparent">
+          <div className="flex items-center gap-0">
+            <img src="/logo.png" alt="Resumely Logo" className="w-16 h-16 object-contain rounded-2xl" />
+            <span className="-ml-2 text-2xl font-extrabold tracking-tight bg-linear-to-r from-white via-zinc-100 to-zinc-400 bg-clip-text text-transparent">
               Resumely
             </span>
           </div>
