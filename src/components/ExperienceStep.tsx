@@ -85,7 +85,7 @@ export default function ExperienceStep({ resumeId, onNext, onBack }: Props) {
 
       const resume = resumeData.resume;
 
-      const { data } = await axios.post("/api/ai/generate-experience", {
+      const { data } = await axios.post("/api/ai/generate/work-experience", {
         jobRole: exp.role,
         experienceLevel: resume.experienceLevel,
       });

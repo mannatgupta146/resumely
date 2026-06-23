@@ -57,7 +57,7 @@ export default function SkillsStep({ resumeId, onNext, onBack }: Props) {
 
       const resume = resumeData.resume;
 
-      const { data } = await axios.post("/api/ai/generate-skills", {
+      const { data } = await axios.post("/api/ai/generate/skills", {
         jobTitle: "web developer",
         experienceLevel: "mid-level",
       });
