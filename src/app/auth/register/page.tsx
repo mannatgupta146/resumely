@@ -96,7 +96,7 @@ export default function RegisterPage() {
                     required: "Name is required",
                   })}
                   placeholder="John Doe"
-                  className="w-full pl-11 pr-4 py-3 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 border border-zinc-300 dark:border-zinc-700 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full pl-11 pr-4 py-3 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 border border-zinc-300 dark:border-zinc-700 rounded-xl focus:outline-2 focus:outline-blue-500 outline-none"
                 />
               </div>
 
@@ -123,7 +123,7 @@ export default function RegisterPage() {
                     required: "Email is required",
                   })}
                   placeholder="john@example.com"
-                  className="w-full pl-11 pr-4 py-3 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 border border-zinc-300 dark:border-zinc-700 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full pl-11 pr-4 py-3 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 border border-zinc-300 dark:border-zinc-700 rounded-xl focus:outline-2 focus:outline-blue-500 outline-none"
                 />
               </div>
 
@@ -156,7 +156,7 @@ export default function RegisterPage() {
                     },
                   })}
                   placeholder="********"
-                  className="w-full pl-11 pr-4 py-3 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 border border-zinc-300 dark:border-zinc-700 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full pl-11 pr-4 py-3 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 border border-zinc-300 dark:border-zinc-700 rounded-xl focus:outline-2 focus:outline-blue-500 outline-none"
                 />
               </div>
 

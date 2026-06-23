@@ -184,7 +184,7 @@ export default function ResumePage() {
                     title: e.target.value,
                   })
                 }
-                className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:outline-2 focus:outline-blue-500 transition-all"
               />
 
               <input
@@ -196,7 +196,7 @@ export default function ResumePage() {
                     jobTitle: e.target.value,
                   })
                 }
-                className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:outline-2 focus:outline-blue-500 transition-all"
               />
 
               <select
@@ -207,7 +207,7 @@ export default function ResumePage() {
                     experienceLevel: e.target.value,
                   })
                 }
-                className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:outline-2 focus:outline-blue-500 transition-all"
               >
                 <option>Fresher</option>
 

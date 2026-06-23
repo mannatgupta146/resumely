@@ -172,18 +172,18 @@ export default function ExperienceStep({ resumeId, onNext, onBack }: Props) {
                   <input
                     {...register(`experience.${index}.company`)}
                     placeholder="Company Name"
-                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:outline-2 focus:outline-blue-500 transition-all"
                   />
 
                   <input
                     {...register(`experience.${index}.role`)}
                     placeholder="Job Title"
-                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:outline-2 focus:outline-blue-500 transition-all"
                   />
 
                   <select
                     {...register(`experience.${index}.employmentType`)}
-                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:outline-2 focus:outline-blue-500 transition-all"
                   >
                     <option value="">Employment Type</option>
                     <option>Full Time</option>
@@ -195,14 +195,14 @@ export default function ExperienceStep({ resumeId, onNext, onBack }: Props) {
                   <input
                     type="date"
                     {...register(`experience.${index}.startDate`)}
-                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:outline-2 focus:outline-blue-500 transition-all"
                   />
 
                   <input
                     type="date"
                     {...register(`experience.${index}.endDate`)}
                     disabled={watch(`experience.${index}.currentlyWorking`)}
-                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:opacity-50"
+                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:outline-2 focus:outline-blue-500 transition-all disabled:opacity-50"
                   />
                 </div>
 
@@ -233,7 +233,7 @@ export default function ExperienceStep({ resumeId, onNext, onBack }: Props) {
                     rows={6}
                     {...register(`experience.${index}.description`)}
                     placeholder="Describe your responsibilities and achievements..."
-                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-4 outline-none focus:outline-2 focus:outline-blue-500 transition-all"
                   />
                 </div>
               </div>

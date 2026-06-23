@@ -171,7 +171,7 @@ function InputField({ label, placeholder, icon, register }: any) {
         <input
           {...register}
           placeholder={placeholder}
-          className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl py-3 pl-12 pr-4 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+          className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl py-3 pl-12 pr-4 outline-none focus:outline-2 focus:outline-blue-500 transition-all"
         />
       </div>
     </div>

@@ -135,7 +135,7 @@ export default function SkillsStep({ resumeId, onNext, onBack }: Props) {
               value={skillInput}
               onChange={(e) => setSkillInput(e.target.value)}
               placeholder="Enter skill"
-              className="flex-1 border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              className="flex-1 border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl px-4 py-3 outline-none focus:outline-2 focus:outline-blue-500 transition-all"
             />
 
             <button

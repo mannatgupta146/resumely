@@ -178,25 +178,25 @@ export default function ProjectsStep({ resumeId, onNext, onBack }: Props) {
                   <input
                     {...register(`projects.${index}.title`)}
                     placeholder="Project Title"
-                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:outline-2 focus:outline-blue-500 transition-all"
                   />
 
                   <input
                     {...register(`projects.${index}.techStack`)}
                     placeholder="React, Next.js, MongoDB"
-                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:outline-2 focus:outline-blue-500 transition-all"
                   />
 
                   <input
                     {...register(`projects.${index}.githubUrl`)}
                     placeholder="GitHub URL"
-                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:outline-2 focus:outline-blue-500 transition-all"
                   />
 
                   <input
                     {...register(`projects.${index}.liveUrl`)}
                     placeholder="Live URL"
-                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:outline-2 focus:outline-blue-500 transition-all"
                   />
                 </div>
 
@@ -216,7 +216,7 @@ export default function ProjectsStep({ resumeId, onNext, onBack }: Props) {
                     rows={5}
                     {...register(`projects.${index}.description`)}
                     placeholder="Project Description"
-                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-4 outline-none focus:outline-2 focus:outline-blue-500 transition-all"
                   />
                 </div>
               </div>
