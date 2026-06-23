@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-import { ArrowRight, Lock, Mail, User } from "lucide-react";
+import { ArrowRight, Lock, Mail, User, Sparkles, CheckCircle2 } from "lucide-react";
 import { registerApi } from "@/apis/auth.api";
 
 type RegisterFormData = {
@@ -42,25 +42,72 @@ export default function RegisterPage() {
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-black flex transition-colors duration-300">
       {/* Left Section */}
-      <div className="hidden lg:flex flex-1 bg-linear-to-br from-blue-600 via-blue-700 to-indigo-800 p-12 text-white flex-col justify-between">
-        <div>
-          <h1 className="text-4xl font-bold">
-            AI Resume Builder
-          </h1>
+      <div className="hidden lg:flex flex-1 relative bg-zinc-950 p-12 text-white flex-col justify-between overflow-hidden border-r border-zinc-900">
+        {/* Background Gradients & Grid Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]" />
+        <div className="absolute top-1/4 left-1/4 w-[350px] h-[350px] bg-blue-600/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] bg-indigo-600/10 rounded-full blur-3xl animate-pulse [animation-delay:1s]" />
 
-          <p className="mt-4 text-blue-100">
-            Create ATS-optimized resumes with AI.
-          </p>
+        {/* Top Header / Branding */}
+        <div className="relative z-10">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-linear-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
+              <Sparkles size={22} className="text-white" />
+            </div>
+            <span className="text-2xl font-extrabold tracking-tight bg-linear-to-r from-white via-zinc-100 to-zinc-400 bg-clip-text text-transparent">
+              Resumely
+            </span>
+          </div>
         </div>
 
-        <div>
-          <h2 className="text-3xl font-bold">
-            Build Your Professional Resume
-          </h2>
+        {/* Interactive Floating Cards Showcase */}
+        <div className="relative h-[300px] my-auto z-10">
+          {/* Card 1: AI Writer */}
+          <div className="absolute top-[5%] left-[5%] p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl hover:scale-105 transition-all duration-300 flex flex-col gap-2 w-[220px]">
+            <div className="flex items-center gap-2 text-blue-400">
+              <Sparkles size={16} />
+              <span className="text-[10px] text-zinc-400 uppercase font-bold tracking-widest">AI Writer</span>
+            </div>
+            <div className="text-xs text-white italic">"Write a professional summary for a Front-End Engineer..."</div>
+            <div className="text-[10px] text-emerald-400 font-semibold mt-1">✓ Description generated</div>
+          </div>
 
-          <p className="mt-4 text-blue-100">
-            Generate summaries, skills,
-            experiences and ATS reports instantly.
+          {/* Card 2: Active Template */}
+          <div className="absolute top-[45%] right-[5%] p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl hover:scale-105 transition-all duration-300 flex flex-col gap-2 w-[200px]">
+            <span className="text-[10px] text-purple-400 uppercase font-bold tracking-widest">Active Template</span>
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-16 rounded bg-zinc-800 border border-zinc-700 p-1.5 flex flex-col gap-1 shrink-0">
+                <div className="h-1 bg-zinc-600 rounded-full w-full" />
+                <div className="h-1 bg-zinc-600 rounded-full w-3/4" />
+                <div className="h-6 bg-zinc-700 rounded-xs w-full mt-1" />
+              </div>
+              <div>
+                <div className="text-xs font-semibold text-white">"Minimalist"</div>
+                <div className="text-[10px] text-zinc-400">Default layout</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 3: Completeness */}
+          <div className="absolute bottom-[5%] left-[15%] p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 w-[220px]">
+            <div className="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+              <CheckCircle2 size={18} />
+            </div>
+            <div>
+              <div className="text-xs font-semibold text-white">All Steps Completed</div>
+              <div className="text-[10px] text-zinc-400">Ready to export PDF</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Text / Tagline */}
+        <div className="relative z-10">
+          <h2 className="text-3xl font-bold tracking-tight text-white leading-tight">
+            Build a resume that <br />
+            stands out to employers.
+          </h2>
+          <p className="mt-3 text-sm text-zinc-400 max-w-sm">
+            Leverage AI to automatically format, add relevant keywords, and optimize for recruiter screening systems.
           </p>
         </div>
       </div>

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-import { ArrowRight, Lock, Mail } from "lucide-react";
+import { ArrowRight, Lock, Mail, Sparkles, FileText } from "lucide-react";
 import { loginApi } from "@/apis/auth.api";
 
 type LoginFormData = {
@@ -40,26 +40,70 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-black flex transition-colors duration-300">
-      {/* Left */}
-      <div className="hidden lg:flex flex-1 bg-linear-to-br from-blue-600 via-blue-700 to-indigo-800 p-12 text-white flex-col justify-between">
-        <div>
-          <h1 className="text-4xl font-bold">
-            AI Resume Builder
-          </h1>
+      {/* Left Section */}
+      <div className="hidden lg:flex flex-1 relative bg-zinc-950 p-12 text-white flex-col justify-between overflow-hidden border-r border-zinc-900">
+        {/* Background Gradients & Grid Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]" />
+        <div className="absolute top-1/4 left-1/4 w-[350px] h-[350px] bg-blue-600/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] bg-indigo-600/10 rounded-full blur-3xl animate-pulse [animation-delay:1s]" />
 
-          <p className="mt-4 text-blue-100">
-            Build professional resumes powered by AI.
-          </p>
+        {/* Top Header / Branding */}
+        <div className="relative z-10">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-linear-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
+              <Sparkles size={22} className="text-white" />
+            </div>
+            <span className="text-2xl font-extrabold tracking-tight bg-linear-to-r from-white via-zinc-100 to-zinc-400 bg-clip-text text-transparent">
+              Resumely
+            </span>
+          </div>
         </div>
 
-        <div>
-          <h2 className="text-3xl font-bold">
-            Welcome Back
-          </h2>
+        {/* Interactive Floating Cards Showcase */}
+        <div className="relative h-[300px] my-auto z-10">
+          {/* Card 1: ATS Score */}
+          <div className="absolute top-[5%] left-[5%] p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl hover:scale-105 transition-all duration-300 flex flex-col gap-1 w-[200px]">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+              <span className="text-[10px] text-zinc-400 uppercase font-bold tracking-widest">ATS Optimizer</span>
+            </div>
+            <div className="text-3xl font-extrabold text-white mt-1">98%</div>
+            <div className="text-xs text-zinc-400 mt-1">Highly Optimized</div>
+            <div className="w-full h-1.5 bg-white/10 rounded-full mt-3 overflow-hidden">
+              <div className="w-[98%] h-full bg-emerald-500 rounded-full" />
+            </div>
+          </div>
 
-          <p className="mt-4 text-blue-100">
-            Continue building your ATS-friendly
-            resume.
+          {/* Card 2: AI Suggestions */}
+          <div className="absolute top-[45%] right-[5%] p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl hover:scale-105 transition-all duration-300 flex flex-col gap-2 w-[220px]">
+            <span className="text-[10px] text-blue-400 uppercase font-bold tracking-widest">AI Keywords Added</span>
+            <div className="flex flex-wrap gap-1.5">
+              <span className="px-2 py-0.5 text-[10px] rounded-md bg-blue-500/20 border border-blue-500/30 text-blue-200 font-medium">React</span>
+              <span className="px-2 py-0.5 text-[10px] rounded-md bg-indigo-500/20 border border-indigo-500/30 text-indigo-200 font-medium">Next.js</span>
+              <span className="px-2 py-0.5 text-[10px] rounded-md bg-emerald-500/20 border border-emerald-500/30 text-emerald-200 font-medium">ATS Checked</span>
+            </div>
+          </div>
+
+          {/* Card 3: Status / Summary */}
+          <div className="absolute bottom-[5%] left-[15%] p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 w-[220px]">
+            <div className="w-9 h-9 rounded-xl bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 shrink-0">
+              <FileText size={18} />
+            </div>
+            <div>
+              <div className="text-xs font-semibold text-white">Live PDF Preview</div>
+              <div className="text-[10px] text-zinc-400">Instantly synced</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Text / Tagline */}
+        <div className="relative z-10">
+          <h2 className="text-3xl font-bold tracking-tight text-white leading-tight">
+            Welcome back to <br />
+            your professional resume.
+          </h2>
+          <p className="mt-3 text-sm text-zinc-400 max-w-sm">
+            Resume creation has never been simpler. Log in to continue polishing your template and matching key ATS targets.
           </p>
         </div>
       </div>
