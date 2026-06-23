@@ -69,7 +69,7 @@ export function DropdownMenuContent({ align = "end", children }: { align?: "star
   )
 }
 
-export function DropdownMenuItem({ onClick, children }: { onClick?: () => void; children: React.ReactNode }) {
+export function DropdownMenuItem({ onClick, className, children }: { onClick?: () => void; className?: string; children: React.ReactNode }) {
   const context = React.useContext(DropdownContext)
   if (!context) throw new Error("DropdownMenuItem must be used within DropdownMenu")
 
@@ -81,7 +81,7 @@ export function DropdownMenuItem({ onClick, children }: { onClick?: () => void; 
         onClick?.()
         setOpen(false)
       }}
-      className="flex w-full items-center rounded-lg px-3 py-2 text-sm text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-950 dark:hover:text-white transition-colors cursor-pointer text-left"
+      className={`flex w-full items-center rounded-lg px-3 py-2 text-sm text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-950 dark:hover:text-white transition-colors cursor-pointer text-left ${className || ""}`}
       type="button"
     >
       {children}
