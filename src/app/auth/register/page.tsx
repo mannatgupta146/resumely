@@ -40,7 +40,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-black flex transition-colors duration-300">
+    <div className="min-h-screen bg-zinc-50 dark:bg-black flex transition-colors duration-300">
       {/* Left Section */}
       <div className="hidden lg:flex flex-1 bg-linear-to-br from-blue-600 via-blue-700 to-indigo-800 p-12 text-white flex-col justify-between">
         <div>
@@ -67,12 +67,12 @@ export default function RegisterPage() {
 
       {/* Form */}
       <div className="flex-1 flex items-center justify-center p-6">
-        <div className="w-full max-w-md bg-white dark:bg-zinc-900 rounded-3xl border border-slate-200 dark:border-zinc-800 shadow-xl p-8 transition-colors duration-300">
-          <h2 className="text-3xl font-bold text-slate-800 dark:text-white">
+        <div className="w-full max-w-md bg-white dark:bg-zinc-900 rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-xl p-8 transition-colors duration-300">
+          <h2 className="text-3xl font-bold text-zinc-800 dark:text-white">
             Create Account 🚀
           </h2>
 
-          <p className="text-slate-500 dark:text-zinc-400 mt-2">
+          <p className="text-zinc-500 dark:text-zinc-400 mt-2">
             Start building your resume.
           </p>
 
@@ -81,14 +81,14 @@ export default function RegisterPage() {
             className="mt-8 space-y-5"
           >
             <div>
-              <label className="block mb-2 text-sm font-medium text-slate-700 dark:text-zinc-300">
+              <label className="block mb-2 text-sm font-medium text-zinc-700 dark:text-zinc-300">
                 Full Name
               </label>
 
               <div className="relative">
                 <User
                   size={18}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 dark:text-zinc-500"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400 dark:text-zinc-500"
                 />
 
                 <input
@@ -96,7 +96,7 @@ export default function RegisterPage() {
                     required: "Name is required",
                   })}
                   placeholder="John Doe"
-                  className="w-full pl-11 pr-4 py-3 bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 border border-slate-300 dark:border-zinc-700 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full pl-11 pr-4 py-3 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 border border-zinc-300 dark:border-zinc-700 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
                 />
               </div>
 
@@ -108,14 +108,14 @@ export default function RegisterPage() {
             </div>
 
             <div>
-              <label className="block mb-2 text-sm font-medium text-slate-700 dark:text-zinc-300">
+              <label className="block mb-2 text-sm font-medium text-zinc-700 dark:text-zinc-300">
                 Email
               </label>
 
               <div className="relative">
                 <Mail
                   size={18}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 dark:text-zinc-500"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400 dark:text-zinc-500"
                 />
 
                 <input
@@ -123,7 +123,7 @@ export default function RegisterPage() {
                     required: "Email is required",
                   })}
                   placeholder="john@example.com"
-                  className="w-full pl-11 pr-4 py-3 bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 border border-slate-300 dark:border-zinc-700 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full pl-11 pr-4 py-3 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 border border-zinc-300 dark:border-zinc-700 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
                 />
               </div>
 
@@ -135,14 +135,14 @@ export default function RegisterPage() {
             </div>
 
             <div>
-              <label className="block mb-2 text-sm font-medium text-slate-700 dark:text-zinc-300">
+              <label className="block mb-2 text-sm font-medium text-zinc-700 dark:text-zinc-300">
                 Password
               </label>
 
               <div className="relative">
                 <Lock
                   size={18}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 dark:text-zinc-500"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400 dark:text-zinc-500"
                 />
 
                 <input
@@ -156,7 +156,7 @@ export default function RegisterPage() {
                     },
                   })}
                   placeholder="********"
-                  className="w-full pl-11 pr-4 py-3 bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 border border-slate-300 dark:border-zinc-700 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full pl-11 pr-4 py-3 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 border border-zinc-300 dark:border-zinc-700 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
                 />
               </div>
 
@@ -179,7 +179,7 @@ export default function RegisterPage() {
             </button>
           </form>
 
-          <p className="mt-6 text-center text-slate-500 dark:text-zinc-400">
+          <p className="mt-6 text-center text-zinc-500 dark:text-zinc-400">
             Already have an account?
             <Link
               href="/auth/login"

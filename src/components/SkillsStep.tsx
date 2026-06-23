@@ -89,30 +89,30 @@ export default function SkillsStep({ resumeId, onNext, onBack }: Props) {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-black py-10 px-4 text-slate-800 dark:text-zinc-100 transition-colors duration-300">
+    <div className="min-h-screen bg-zinc-50 dark:bg-black py-10 px-4 text-zinc-800 dark:text-zinc-100 transition-colors duration-300">
       <div className="max-w-5xl mx-auto">
         {/* Progress */}
 
         <div className="mb-8">
           <div className="flex justify-between mb-2">
-            <span className="font-medium text-slate-700 dark:text-zinc-300">Step 3 of 8</span>
+            <span className="font-medium text-zinc-700 dark:text-zinc-300">Step 3 of 8</span>
 
-            <span className="text-slate-500 dark:text-zinc-400">37%</span>
+            <span className="text-zinc-500 dark:text-zinc-400">37%</span>
           </div>
 
-          <div className="h-2 bg-slate-200 dark:bg-zinc-800 rounded-full">
+          <div className="h-2 bg-zinc-200 dark:bg-zinc-800 rounded-full">
             <div className="h-full w-[37%] bg-blue-600 rounded-full" />
           </div>
         </div>
 
         {/* Card */}
 
-        <div className="bg-white dark:bg-zinc-900 rounded-3xl border border-slate-200 dark:border-zinc-800 p-8 shadow-sm transition-colors duration-300">
+        <div className="bg-white dark:bg-zinc-900 rounded-3xl border border-zinc-200 dark:border-zinc-800 p-8 shadow-sm transition-colors duration-300">
           <div className="flex justify-between items-center mb-8">
             <div>
-              <h1 className="text-3xl font-bold text-slate-800 dark:text-white">Skills</h1>
+              <h1 className="text-3xl font-bold text-zinc-800 dark:text-white">Skills</h1>
 
-              <p className="text-slate-500 dark:text-zinc-400 mt-2">
+              <p className="text-zinc-500 dark:text-zinc-400 mt-2">
                 Add skills relevant to your role.
               </p>
             </div>
@@ -135,13 +135,13 @@ export default function SkillsStep({ resumeId, onNext, onBack }: Props) {
               value={skillInput}
               onChange={(e) => setSkillInput(e.target.value)}
               placeholder="Enter skill"
-              className="flex-1 border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              className="flex-1 border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
             />
 
             <button
               onClick={addSkill}
               type="button"
-              className="px-5 py-3 bg-slate-900 dark:bg-zinc-800 hover:bg-slate-800 dark:hover:bg-zinc-700 text-white rounded-xl cursor-pointer transition-colors duration-200"
+              className="px-5 py-3 bg-zinc-900 dark:bg-zinc-800 hover:bg-zinc-800 dark:hover:bg-zinc-700 text-white rounded-xl cursor-pointer transition-colors duration-200"
             >
               Add
             </button>
@@ -169,7 +169,7 @@ export default function SkillsStep({ resumeId, onNext, onBack }: Props) {
           <div className="flex justify-between mt-12">
             <button
               onClick={onBack}
-              className="flex items-center gap-2 px-5 py-3 border border-slate-300 dark:border-zinc-700 text-slate-700 dark:text-zinc-300 rounded-xl hover:bg-slate-100 dark:hover:bg-zinc-800 cursor-pointer transition-colors"
+              className="flex items-center gap-2 px-5 py-3 border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800 cursor-pointer transition-colors"
             >
               <ArrowLeft size={18} />
               Back

@@ -15,6 +15,7 @@ interface Resume {
     mobile: string;
     location: string;
     github: string;
+    linkedIn?: string;
     portfolio: string;
   };
 
@@ -82,14 +83,14 @@ export default function ResumePreviewPage() {
   if (!resume) return null;
 
   return (
-    <div className="min-h-screen bg-slate-100 dark:bg-black text-slate-800 dark:text-zinc-100 transition-colors duration-300">
+    <div className="min-h-screen bg-zinc-100 dark:bg-black text-zinc-800 dark:text-zinc-100 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6 py-10">
         <div className="grid lg:grid-cols-4 gap-8">
           {/* Actions */}
 
           <div className="lg:col-span-1">
-            <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-slate-200 dark:border-zinc-800/80 sticky top-6 shadow-sm transition-colors duration-300">
-              <h2 className="font-bold text-xl mb-6 text-slate-800 dark:text-white">Resume Actions</h2>
+            <div className="bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800/80 sticky top-6 shadow-sm transition-colors duration-300">
+              <h2 className="font-bold text-xl mb-6 text-zinc-800 dark:text-white">Resume Actions</h2>
 
               <div className="space-y-3">
                 <button className="w-full flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-xl font-medium cursor-pointer transition-colors duration-200">
@@ -97,12 +98,12 @@ export default function ResumePreviewPage() {
                   ATS Score
                 </button>
 
-                <button className="w-full flex items-center justify-center gap-3 border border-slate-300 dark:border-zinc-700 text-slate-700 dark:text-zinc-300 hover:bg-slate-50 dark:hover:bg-zinc-800 px-4 py-3 rounded-xl font-medium cursor-pointer transition-colors duration-200">
+                <button className="w-full flex items-center justify-center gap-3 border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 px-4 py-3 rounded-xl font-medium cursor-pointer transition-colors duration-200">
                   <Download size={18} />
                   Download PDF
                 </button>
 
-                <button className="w-full flex items-center justify-center gap-3 border border-slate-300 dark:border-zinc-700 text-slate-700 dark:text-zinc-300 hover:bg-slate-50 dark:hover:bg-zinc-800 px-4 py-3 rounded-xl font-medium cursor-pointer transition-colors duration-200">
+                <button className="w-full flex items-center justify-center gap-3 border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 px-4 py-3 rounded-xl font-medium cursor-pointer transition-colors duration-200">
                   <Eye size={18} />
                   Edit Resume
                 </button>
@@ -115,27 +116,29 @@ export default function ResumePreviewPage() {
           <div className="lg:col-span-3">
             <div
               id="resume-preview"
-              className="bg-white dark:bg-zinc-900 border border-slate-100 dark:border-zinc-800/80 shadow-lg rounded-3xl p-10 transition-colors duration-300"
+              className="bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800/80 shadow-lg rounded-3xl p-10 transition-colors duration-300"
             >
               {/* Header */}
 
-              <div className="border-b border-slate-200 dark:border-zinc-800 pb-6">
-                <h1 className="text-4xl font-bold text-slate-900 dark:text-white">
+              <div className="border-b border-zinc-200 dark:border-zinc-800 pb-6">
+                <h1 className="text-4xl font-bold text-zinc-900 dark:text-white">
                   {resume.personalInfo?.fullname}
                 </h1>
 
-                <div className="mt-3 text-slate-600 dark:text-zinc-400 text-sm flex flex-wrap gap-4">
-                  <span>{resume.personalInfo?.email}</span>
+                <div className="mt-3 text-zinc-600 dark:text-zinc-400 text-sm flex flex-wrap gap-4">
+                  {resume.personalInfo?.email && <span>{resume.personalInfo.email}</span>}
 
-                  <span>{resume.personalInfo?.mobile}</span>
+                  {resume.personalInfo?.mobile && <span>{resume.personalInfo.mobile}</span>}
 
-                  <span>{resume.personalInfo?.location}</span>
+                  {resume.personalInfo?.location && <span>{resume.personalInfo.location}</span>}
                 </div>
 
-                <div className="mt-2 flex gap-4 text-sm text-slate-500 dark:text-zinc-400">
-                  <span>{resume.personalInfo?.github}</span>
+                <div className="mt-2 flex flex-wrap gap-4 text-sm text-zinc-500 dark:text-zinc-400">
+                  {resume.personalInfo?.github && <span>GitHub: {resume.personalInfo.github}</span>}
 
-                  <span>{resume.personalInfo?.portfolio}</span>
+                  {resume.personalInfo?.linkedIn && <span>LinkedIn: {resume.personalInfo.linkedIn}</span>}
+
+                  {resume.personalInfo?.portfolio && <span>Portfolio: {resume.personalInfo.portfolio}</span>}
                 </div>
               </div>
 
@@ -143,24 +146,24 @@ export default function ResumePreviewPage() {
 
               {resume.summary && (
                 <section className="mt-8">
-                  <h2 className="font-bold text-xl text-slate-800 dark:text-white mb-3">
+                  <h2 className="font-bold text-xl text-zinc-800 dark:text-white mb-3">
                     Professional Summary
                   </h2>
 
-                  <p className="text-slate-700 dark:text-zinc-300 leading-7">{resume.summary}</p>
+                  <p className="text-zinc-700 dark:text-zinc-300 leading-7">{resume.summary}</p>
                 </section>
               )}
 
               {/* Skills */}
 
               <section className="mt-8">
-                <h2 className="font-bold text-xl text-slate-800 dark:text-white mb-3">Skills</h2>
+                <h2 className="font-bold text-xl text-zinc-800 dark:text-white mb-3">Skills</h2>
 
                 <div className="flex flex-wrap gap-2">
                   {resume.skills?.map((skill) => (
                     <span
                       key={skill}
-                      className="bg-slate-100 dark:bg-zinc-800 text-slate-800 dark:text-zinc-200 px-3 py-1 rounded-md border border-slate-200 dark:border-zinc-700/60 text-sm font-medium"
+                      className="bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 px-3 py-1 rounded-md border border-zinc-200 dark:border-zinc-700/60 text-sm font-medium"
                     >
                       {skill}
                     </span>
@@ -171,21 +174,21 @@ export default function ResumePreviewPage() {
               {/* Experience */}
 
               <section className="mt-8">
-                <h2 className="font-bold text-xl text-slate-800 dark:text-white mb-4">Work Experience</h2>
+                <h2 className="font-bold text-xl text-zinc-800 dark:text-white mb-4">Work Experience</h2>
 
                 {resume.workExperience?.map((exp, index) => (
                   <div key={index} className="mb-6">
-                    <h3 className="font-semibold text-slate-800 dark:text-zinc-200">{exp.position}</h3>
+                    <h3 className="font-semibold text-zinc-800 dark:text-zinc-200">{exp.position}</h3>
 
-                    <p className="text-slate-500 dark:text-zinc-400 text-sm font-medium">{exp.company}</p>
+                    <p className="text-zinc-500 dark:text-zinc-400 text-sm font-medium">{exp.company}</p>
 
-                    <p className="text-sm text-slate-500 dark:text-zinc-400">
+                    <p className="text-sm text-zinc-500 dark:text-zinc-400">
                       {exp.startDate}
                       {" - "}
                       {exp.endDate}
                     </p>
 
-                    <p className="mt-2 text-slate-700 dark:text-zinc-300">{exp.description}</p>
+                    <p className="mt-2 text-zinc-700 dark:text-zinc-300">{exp.description}</p>
                   </div>
                 ))}
               </section>
@@ -193,13 +196,13 @@ export default function ResumePreviewPage() {
               {/* Projects */}
 
               <section className="mt-8">
-                <h2 className="font-bold text-xl text-slate-800 dark:text-white mb-4">Projects</h2>
+                <h2 className="font-bold text-xl text-zinc-800 dark:text-white mb-4">Projects</h2>
 
                 {resume.projects?.map((project, index) => (
                   <div key={index} className="mb-6">
-                    <h3 className="font-semibold text-slate-800 dark:text-zinc-200">{project.title}</h3>
+                    <h3 className="font-semibold text-zinc-800 dark:text-zinc-200">{project.title}</h3>
 
-                    <p className="mt-2 text-slate-700 dark:text-zinc-300">{project.description}</p>
+                    <p className="mt-2 text-zinc-700 dark:text-zinc-300">{project.description}</p>
 
                     <div className="flex flex-wrap gap-2 mt-3">
                       {project.techStack?.map((tech) => (
@@ -218,15 +221,15 @@ export default function ResumePreviewPage() {
               {/* Education */}
 
               <section className="mt-8">
-                <h2 className="font-bold text-xl text-slate-800 dark:text-white mb-4">Education</h2>
+                <h2 className="font-bold text-xl text-zinc-800 dark:text-white mb-4">Education</h2>
 
                 {resume.education?.map((edu, index) => (
                   <div key={index} className="mb-4">
-                    <h3 className="font-semibold text-slate-800 dark:text-zinc-200">{edu.degree}</h3>
+                    <h3 className="font-semibold text-zinc-800 dark:text-zinc-200">{edu.degree}</h3>
 
-                    <p className="text-slate-600 dark:text-zinc-400">{edu.institute}</p>
+                    <p className="text-zinc-600 dark:text-zinc-400">{edu.institute}</p>
 
-                    <p className="text-sm text-slate-500 dark:text-zinc-400">
+                    <p className="text-sm text-zinc-500 dark:text-zinc-400">
                       {edu.startDate}
                       {" - "}
                       {edu.endDate}
@@ -239,11 +242,11 @@ export default function ResumePreviewPage() {
 
               {resume.certifications?.length > 0 && (
                 <section className="mt-8">
-                  <h2 className="font-bold text-xl text-slate-800 dark:text-white mb-4">Certifications</h2>
+                  <h2 className="font-bold text-xl text-zinc-800 dark:text-white mb-4">Certifications</h2>
 
                   <ul className="list-disc pl-5">
                     {resume.certifications.map((cert, index) => (
-                      <li key={index} className="text-slate-700 dark:text-zinc-300">{cert}</li>
+                      <li key={index} className="text-zinc-700 dark:text-zinc-300">{cert}</li>
                     ))}
                   </ul>
                 </section>

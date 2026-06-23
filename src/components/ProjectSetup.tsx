@@ -117,30 +117,30 @@ export default function ProjectsStep({ resumeId, onNext, onBack }: Props) {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-black py-10 px-4 text-slate-800 dark:text-zinc-100 transition-colors duration-300">
+    <div className="min-h-screen bg-zinc-50 dark:bg-black py-10 px-4 text-zinc-800 dark:text-zinc-100 transition-colors duration-300">
       <div className="max-w-6xl mx-auto">
         {/* Progress */}
 
         <div className="mb-8">
           <div className="flex justify-between mb-2">
-            <span className="font-medium text-slate-700 dark:text-zinc-300">Step 4 of 8</span>
+            <span className="font-medium text-zinc-700 dark:text-zinc-300">Step 4 of 8</span>
 
-            <span className="text-slate-500 dark:text-zinc-400">50%</span>
+            <span className="text-zinc-500 dark:text-zinc-400">50%</span>
           </div>
 
-          <div className="h-2 bg-slate-200 dark:bg-zinc-800 rounded-full">
+          <div className="h-2 bg-zinc-200 dark:bg-zinc-800 rounded-full">
             <div className="h-full w-[50%] bg-blue-600 rounded-full" />
           </div>
         </div>
 
         {/* Card */}
 
-        <div className="bg-white dark:bg-zinc-900 rounded-3xl border border-slate-200 dark:border-zinc-800 p-8 shadow-sm transition-colors duration-300">
+        <div className="bg-white dark:bg-zinc-900 rounded-3xl border border-zinc-200 dark:border-zinc-800 p-8 shadow-sm transition-colors duration-300">
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h1 className="text-3xl font-bold text-slate-800 dark:text-white">Projects</h1>
+              <h1 className="text-3xl font-bold text-zinc-800 dark:text-white">Projects</h1>
 
-              <p className="text-slate-500 dark:text-zinc-400 mt-2">Showcase your best work.</p>
+              <p className="text-zinc-500 dark:text-zinc-400 mt-2">Showcase your best work.</p>
             </div>
 
             <button
@@ -163,7 +163,7 @@ export default function ProjectsStep({ resumeId, onNext, onBack }: Props) {
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
             {fields.map((field, index) => (
-              <div key={field.id} className="border border-slate-200 dark:border-zinc-800 rounded-2xl p-6 relative bg-slate-50/50 dark:bg-zinc-800/30">
+              <div key={field.id} className="border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 relative bg-zinc-50/50 dark:bg-zinc-800/30">
                 {fields.length > 1 && (
                   <button
                     type="button"
@@ -178,25 +178,25 @@ export default function ProjectsStep({ resumeId, onNext, onBack }: Props) {
                   <input
                     {...register(`projects.${index}.title`)}
                     placeholder="Project Title"
-                    className="w-full border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   />
 
                   <input
                     {...register(`projects.${index}.techStack`)}
                     placeholder="React, Next.js, MongoDB"
-                    className="w-full border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   />
 
                   <input
                     {...register(`projects.${index}.githubUrl`)}
                     placeholder="GitHub URL"
-                    className="w-full border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   />
 
                   <input
                     {...register(`projects.${index}.liveUrl`)}
                     placeholder="Live URL"
-                    className="w-full border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   />
                 </div>
 
@@ -216,7 +216,7 @@ export default function ProjectsStep({ resumeId, onNext, onBack }: Props) {
                     rows={5}
                     {...register(`projects.${index}.description`)}
                     placeholder="Project Description"
-                    className="w-full border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   />
                 </div>
               </div>
@@ -228,7 +228,7 @@ export default function ProjectsStep({ resumeId, onNext, onBack }: Props) {
               <button
                 type="button"
                 onClick={onBack}
-                className="flex items-center gap-2 px-5 py-3 border border-slate-300 dark:border-zinc-700 text-slate-700 dark:text-zinc-300 rounded-xl hover:bg-slate-100 dark:hover:bg-zinc-800 cursor-pointer transition-colors"
+                className="flex items-center gap-2 px-5 py-3 border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800 cursor-pointer transition-colors"
               >
                 <ArrowLeft size={18} />
                 Back

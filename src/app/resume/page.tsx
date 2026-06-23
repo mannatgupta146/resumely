@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { Plus, FileText, Trash2, Briefcase } from "lucide-react";
+import { ModeToggle } from "@/components/mode-toggle";
 
 import {
   createResumeApi,
@@ -79,37 +80,40 @@ export default function ResumePage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-black text-slate-800 dark:text-zinc-100 transition-colors duration-300">
+    <div className="min-h-screen bg-zinc-50 dark:bg-black text-zinc-800 dark:text-zinc-100 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6 py-10">
         {/* Header */}
 
         <div className="flex items-center justify-between mb-10">
           <div>
-            <h1 className="text-4xl font-bold text-slate-900 dark:text-white">My Resumes</h1>
+            <h1 className="text-4xl font-bold text-zinc-900 dark:text-white">My Resumes</h1>
 
-            <p className="text-slate-500 dark:text-zinc-400 mt-2">
+            <p className="text-zinc-500 dark:text-zinc-400 mt-2">
               Create ATS-friendly resumes using AI.
             </p>
           </div>
 
-          <button
-            onClick={() => setShowModal(true)}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl flex items-center gap-2 cursor-pointer transition-colors duration-200"
-          >
-            <Plus size={18} />
-            Create Resume
-          </button>
+          <div className="flex items-center gap-4">
+            <ModeToggle />
+            <button
+              onClick={() => setShowModal(true)}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl flex items-center gap-2 cursor-pointer transition-colors duration-200"
+            >
+              <Plus size={18} />
+              Create Resume
+            </button>
+          </div>
         </div>
 
         {/* Empty State */}
 
         {!loading && resumes.length === 0 && (
-          <div className="bg-white dark:bg-zinc-900 rounded-3xl border border-slate-200 dark:border-zinc-800 p-16 text-center shadow-sm">
-            <FileText size={70} className="mx-auto text-slate-300 dark:text-zinc-600" />
+          <div className="bg-white dark:bg-zinc-900 rounded-3xl border border-zinc-200 dark:border-zinc-800 p-16 text-center shadow-sm">
+            <FileText size={70} className="mx-auto text-zinc-300 dark:text-zinc-600" />
 
-            <h2 className="text-2xl font-semibold mt-6 text-slate-800 dark:text-white">No Resume Yet</h2>
+            <h2 className="text-2xl font-semibold mt-6 text-zinc-800 dark:text-white">No Resume Yet</h2>
 
-            <p className="text-slate-500 dark:text-zinc-400 mt-2">
+            <p className="text-zinc-500 dark:text-zinc-400 mt-2">
               Create your first AI powered resume.
             </p>
 
@@ -128,13 +132,13 @@ export default function ResumePage() {
           {resumes.map((resume) => (
             <div
               key={resume._id}
-              className="bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-slate-200 dark:border-zinc-800 hover:shadow-lg transition-all duration-300"
+              className="bg-white dark:bg-zinc-900 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 hover:shadow-lg transition-all duration-300"
             >
               <div className="flex justify-between">
                 <div>
-                  <h2 className="font-bold text-xl text-slate-800 dark:text-white">{resume.title}</h2>
+                  <h2 className="font-bold text-xl text-zinc-800 dark:text-white">{resume.title}</h2>
 
-                  <div className="flex items-center gap-2 text-slate-500 dark:text-zinc-400 mt-2">
+                  <div className="flex items-center gap-2 text-zinc-500 dark:text-zinc-400 mt-2">
                     <Briefcase size={16} />
                     {resume.jobTitle}
                   </div>
@@ -146,7 +150,7 @@ export default function ResumePage() {
 
                 <button
                   onClick={() => handleDelete(resume._id)}
-                  className="text-red-500 hover:text-red-600 cursor-pointer p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800 transition-colors"
+                  className="text-red-500 hover:text-red-600 cursor-pointer p-1 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
                 >
                   <Trash2 size={18} />
                 </button>
@@ -154,7 +158,7 @@ export default function ResumePage() {
 
               <button
                 onClick={() => router.push(`/resume/${resume._id}`)}
-                className="mt-6 w-full bg-slate-900 dark:bg-zinc-800 hover:bg-slate-800 dark:hover:bg-zinc-700 text-white py-3 rounded-xl cursor-pointer transition-colors duration-200"
+                className="mt-6 w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl cursor-pointer transition-colors duration-200"
               >
                 Continue Building
               </button>
@@ -167,8 +171,8 @@ export default function ResumePage() {
 
       {showModal && (
         <div className="fixed inset-0 bg-black/40 dark:bg-black/60 flex items-center justify-center px-4 z-50">
-          <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 w-full max-w-lg rounded-3xl p-8 shadow-2xl">
-            <h2 className="text-2xl font-bold mb-6 text-slate-800 dark:text-white">Create Resume</h2>
+          <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 w-full max-w-lg rounded-3xl p-8 shadow-2xl">
+            <h2 className="text-2xl font-bold mb-6 text-zinc-800 dark:text-white">Create Resume</h2>
 
             <div className="space-y-4">
               <input
@@ -180,7 +184,7 @@ export default function ResumePage() {
                     title: e.target.value,
                   })
                 }
-                className="w-full border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
               />
 
               <input
@@ -192,7 +196,7 @@ export default function ResumePage() {
                     jobTitle: e.target.value,
                   })
                 }
-                className="w-full border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
               />
 
               <select
@@ -203,7 +207,7 @@ export default function ResumePage() {
                     experienceLevel: e.target.value,
                   })
                 }
-                className="w-full border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-slate-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
               >
                 <option>Fresher</option>
 
@@ -218,7 +222,7 @@ export default function ResumePage() {
             <div className="flex justify-end gap-3 mt-8">
               <button
                 onClick={() => setShowModal(false)}
-                className="px-5 py-3 border border-slate-300 dark:border-zinc-700 text-slate-700 dark:text-zinc-300 rounded-xl hover:bg-slate-50 dark:hover:bg-zinc-800 transition-colors duration-200 cursor-pointer"
+                className="px-5 py-3 border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors duration-200 cursor-pointer"
               >
                 Cancel
               </button>

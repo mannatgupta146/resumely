@@ -109,28 +109,28 @@ export default function ExperienceStep({ resumeId, onNext, onBack }: Props) {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 py-10 px-4 text-slate-800 dark:text-slate-100 transition-colors duration-300">
+    <div className="min-h-screen bg-zinc-50 dark:bg-black py-10 px-4 text-zinc-800 dark:text-zinc-100 transition-colors duration-300">
       <div className="max-w-6xl mx-auto">
         {/* Progress */}
 
         <div className="mb-8">
           <div className="flex justify-between mb-2">
-            <span className="font-medium text-slate-700 dark:text-slate-300">Step 5 of 8</span>
+            <span className="font-medium text-zinc-700 dark:text-zinc-300">Step 5 of 8</span>
 
-            <span className="text-slate-500 dark:text-slate-400">62%</span>
+            <span className="text-zinc-500 dark:text-zinc-400">62%</span>
           </div>
 
-          <div className="h-2 bg-slate-200 dark:bg-slate-800 rounded-full">
+          <div className="h-2 bg-zinc-200 dark:bg-zinc-800 rounded-full">
             <div className="h-full w-[62%] bg-blue-600 rounded-full" />
           </div>
         </div>
 
-        <div className="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm transition-colors duration-300">
+        <div className="bg-white dark:bg-zinc-900 p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-sm transition-colors duration-300">
           <div className="flex justify-between items-center mb-8">
             <div>
-              <h1 className="text-3xl font-bold text-slate-800 dark:text-white">Work Experience</h1>
+              <h1 className="text-3xl font-bold text-zinc-800 dark:text-white">Work Experience</h1>
 
-              <p className="text-slate-500 dark:text-slate-400 mt-2">
+              <p className="text-zinc-500 dark:text-zinc-400 mt-2">
                 Showcase your professional experience.
               </p>
             </div>
@@ -157,7 +157,7 @@ export default function ExperienceStep({ resumeId, onNext, onBack }: Props) {
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
             {fields.map((field, index) => (
-              <div key={field.id} className="border border-slate-200 dark:border-slate-800 rounded-2xl p-6 relative bg-slate-50/50 dark:bg-slate-800/30">
+              <div key={field.id} className="border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 relative bg-zinc-50/50 dark:bg-zinc-800/30">
                 {fields.length > 1 && (
                   <button
                     type="button"
@@ -172,18 +172,18 @@ export default function ExperienceStep({ resumeId, onNext, onBack }: Props) {
                   <input
                     {...register(`experience.${index}.company`)}
                     placeholder="Company Name"
-                    className="w-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   />
 
                   <input
                     {...register(`experience.${index}.role`)}
                     placeholder="Job Title"
-                    className="w-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   />
 
                   <select
                     {...register(`experience.${index}.employmentType`)}
-                    className="w-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   >
                     <option value="">Employment Type</option>
                     <option>Full Time</option>
@@ -195,23 +195,23 @@ export default function ExperienceStep({ resumeId, onNext, onBack }: Props) {
                   <input
                     type="date"
                     {...register(`experience.${index}.startDate`)}
-                    className="w-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   />
 
                   <input
                     type="date"
                     {...register(`experience.${index}.endDate`)}
                     disabled={watch(`experience.${index}.currentlyWorking`)}
-                    className="w-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:opacity-50"
+                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:opacity-50"
                   />
                 </div>
 
                 <div className="mt-4">
-                  <label className="flex items-center gap-3 text-slate-700 dark:text-slate-300 cursor-pointer">
+                  <label className="flex items-center gap-3 text-zinc-700 dark:text-zinc-300 cursor-pointer">
                     <input
                       type="checkbox"
                       {...register(`experience.${index}.currentlyWorking`)}
-                      className="rounded border-slate-300 dark:border-slate-700 text-blue-600 focus:ring-blue-500"
+                      className="rounded border-zinc-300 dark:border-zinc-700 text-blue-600 focus:ring-blue-500"
                     />
                     Currently Working Here
                   </label>
@@ -233,7 +233,7 @@ export default function ExperienceStep({ resumeId, onNext, onBack }: Props) {
                     rows={6}
                     {...register(`experience.${index}.description`)}
                     placeholder="Describe your responsibilities and achievements..."
-                    className="w-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   />
                 </div>
               </div>
@@ -243,7 +243,7 @@ export default function ExperienceStep({ resumeId, onNext, onBack }: Props) {
               <button
                 type="button"
                 onClick={onBack}
-                className="border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 px-5 py-3 rounded-xl flex items-center gap-2 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer transition-colors"
+                className="border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 px-5 py-3 rounded-xl flex items-center gap-2 hover:bg-zinc-100 dark:hover:bg-zinc-800 cursor-pointer transition-colors"
               >
                 <ArrowLeft size={18} />
                 Back
